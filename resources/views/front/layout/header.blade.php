@@ -16,6 +16,9 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
+                                        @if(auth()->user()->type === 'admin')
+                                        <li><a href="{{route('dashboard.home')}}">Back To DashBoard</a></li>
+                                        @endif
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="doctor.html">Doctors</a></li>
