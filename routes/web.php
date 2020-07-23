@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::group(['namespace'=>'FrontEnd'],function (){
 
-    Route::get('/','HomePageController');
+    Route::get('/','HomePageController')->name('site.home');
 });
 
 

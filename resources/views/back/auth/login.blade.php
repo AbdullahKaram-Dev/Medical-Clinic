@@ -1,4 +1,4 @@
-@extends('back.layout.app')
+@extends('back.layout.login-register')
 
 @section('content')
 <div class="container">
