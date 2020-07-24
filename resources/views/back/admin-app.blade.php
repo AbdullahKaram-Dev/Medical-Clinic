@@ -26,28 +26,16 @@
     <link rel="stylesheet" href="{{asset('back-design/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-    <!-- Navbar -->
 @include('back.layout.navBar')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
 @include('back.layout.sidebar')
-    <!-- Content Wrapper. Contains page content -->
 @yield('content')
-    <!-- /.content-wrapper -->
-@include('back.layout.footer')
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-
-<!-- ./wrapper -->
 </div>
+@include('back.layout.footer')
 <!-- jQuery -->
 <script src="{{asset('back-design/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -82,5 +70,6 @@
 <script src="{{asset('back-design/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('back-design/dist/js/demo.js')}}"></script>
+@include('sweet::alert')
 </body>
 </html>

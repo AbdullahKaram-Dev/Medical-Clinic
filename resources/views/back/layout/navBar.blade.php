@@ -2,10 +2,10 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('dashboard.home')}}" class="nav-link">Home</a>
+            <a href="{{route('dashboard.home')}}" class="nav-link">Home-Dashboard</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('site.home')}}" class="nav-link">Back To Site</a>
+            <a href="{{route('site.home')}}" target="_blank" class="nav-link">Back To Site</a>
         </li>
     </ul>
 

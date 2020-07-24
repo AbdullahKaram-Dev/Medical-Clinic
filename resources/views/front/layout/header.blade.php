@@ -17,7 +17,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         @if(auth()->check() && IsAdmin())
-                                        <li><a href="{{route('dashboard.home')}}">Back To DashBoard</a></li>
+                                        <li><a href="{{route('dashboard.home')}}" target="_blank">Back To DashBoard</a></li>
                                         @endif
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
