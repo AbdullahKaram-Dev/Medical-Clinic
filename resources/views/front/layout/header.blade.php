@@ -10,14 +10,14 @@
                             <a href="index.html"><img src="{{asset('front-design/img/logo/logo.png')}}" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-xl-10 col-lg-10 col-md-10">
+                    <div class="col-xl-11 col-lg-11 col-md-11">
                         <div class="menu-main d-flex align-items-center justify-content-end">
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
                                         @if(auth()->check() && IsAdmin())
-                                        <li><a href="{{route('dashboard.home')}}" target="_blank">Back To DashBoard</a></li>
+                                        <li><a href="{{route('dashboard.home')}}" target="_blank">Back To Dashboard</a></li>
                                         @endif
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>

@@ -25,7 +25,7 @@
                             <div class="col-12">
                                 <h3 class="lead"><b>{{$doctor->name}}</b></h3>
                                 <h2 class="text-muted text-sm"><b>Status : {!! $doctor->status ==='active'?'<label class="badge badge-success">active</label>':'<label class="badge badge-danger">deactivate</label>' !!}</b></h2>
-                                <h1 class="text-muted text-sm">Phone :{{$doctor->mobile_number}}</h1>
+                                <h1 class="text-muted text-sm">Phone : {{$doctor->mobile_number}} <a class="badge badge-success" href="https://wa.me/{{$doctor->mobile_number}}">Whatsapp</a></h1>
                             </div>
                             <div class="col-4 text-center">
                                 <img src="{{asset('storage/'.$doctor->avatar)}}" alt="" class="img-circle img-fluid">
@@ -36,7 +36,7 @@
                             </a>
                             </div>
                             <div>
-                            <a href="{{$doctor->facebook_link}}" class="btn btn-sm bg-gradient-yellow mr-2">
+                            <a href="{{route('edit-doctor',$doctor->name)}}" class="btn btn-sm bg-gradient-yellow mr-2">
                                 Update
                             </a>
                             </div>
@@ -44,16 +44,16 @@
                     </div>
                     <div class="card-footer">
                         <div class="text-right">
-                            <a href="{{$doctor->facebook_link}}" class="btn btn-sm btn-primary">
+                            <a href="{{$doctor->facebook_link}}" class="badge badge-primary">
                                 Facebook
                             </a>
-                            <a href="{{$doctor->twitter_link}}" class="btn btn-sm btn-primary">
+                            <a href="{{$doctor->twitter_link}}" class="badge badge-success">
                                 Twitter
                             </a>
-                            <a href="{{$doctor['linked-in_link']}}" class="btn btn-sm btn-primary">
+                            <a href="{{$doctor['linked-in_link']}}" class="badge badge-primary">
                                 Linked-in
                             </a>
-                            <a href="mailto:{{$doctor->email}}" class="btn btn-sm btn-primary d-inline">
+                            <a href="mailto:{{$doctor->email}}" class="badge badge-success">
                                 Email
                             </a>
                         </div>

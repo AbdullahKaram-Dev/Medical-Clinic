@@ -11,7 +11,8 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
     Route::get('add/new/doctor','DoctorController@addNewDoctorForm')->name('add-doctor-form');
     Route::post('add/new/doctor','DoctorController@addNewDoctor')->name('add-doctor');
     Route::get('delete/doctor/{users:name}','DoctorController@deleteDoctor')->name('delete-doctor');
-
+    Route::get('edit/doctor/{users:name}','DoctorController@editDoctor')->name('edit-doctor');
+    Route::post('update/doctor/{users:name}','DoctorController@updateDoctor')->name('update-doctor');
 
 });
 

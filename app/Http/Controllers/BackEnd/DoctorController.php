@@ -5,7 +5,7 @@ namespace App\Http\Controllers\BackEnd;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Doctor\Store;
-use function GuzzleHttp\Promise\all;
+use App\Http\Requests\Doctor\Update;
 
 
 class DoctorController extends Controller
@@ -47,7 +47,6 @@ class DoctorController extends Controller
         if(isset($name)){
 
             Doctor::where('name',$name)->delete();
-
             alert()->success('Doctor Removed Successfully','Success');
             return back();
 
@@ -56,6 +55,53 @@ class DoctorController extends Controller
             alert()->error('Doctor Not Found','Error');
             return back();
         }
+
+    }
+
+    public function editDoctor($name)
+    {
+      $doctor = Doctor::where('name',$name)->first();
+      return view('back.doctors.edit',compact('doctor'));
+    }
+
+    public function updateDoctor(Update $update,$name)
+    {
+
+      if(request()->has('avatar'))
+      {
+          $image = request('avatar')->store('doctors/avatars');
+          $update->avatar = $image;
+
+          Doctor::where('name',$name)->update([
+              'name'=>$update['name'],
+              'title_jop'=>$update['title_jop'],
+              'email'=>$update['email'],
+              'avatar'=>$update->avatar,
+              'facebook_link'=>$update['facebook_link'],
+              'twitter_link'=>$update['twitter_link'],
+              'linked-in_link'=>$update['linked-in_link'],
+              'mobile_number'=>$update['mobile_number'],
+              'status'=>$update['status']
+          ]);
+          alert()->success('Doctor Updated Successfully','Success');
+          return back();
+      }else{
+
+          Doctor::where('name',$name)->update([
+              'name'=>$update['name'],
+              'title_jop'=>$update['title_jop'],
+              'email'=>$update['email'],
+              'facebook_link'=>$update['facebook_link'],
+              'twitter_link'=>$update['twitter_link'],
+              'linked-in_link'=>$update['linked-in_link'],
+              'mobile_number'=>$update['mobile_number'],
+              'status'=>$update['status']
+
+          ]);
+
+          alert()->success('Doctor Updated Successfully','Success');
+          return back();
+      }
 
     }
 }
