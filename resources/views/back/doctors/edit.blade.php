@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <section class="content">
             <div class="container-fluid">
-                <form action="{{route('update-doctor',$doctor->name)}}" method="POST" enctype="multipart/form-data" role="form">
+                <form action="{{route('update-doctor',$doctor->id)}}" method="POST" enctype="multipart/form-data" role="form">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

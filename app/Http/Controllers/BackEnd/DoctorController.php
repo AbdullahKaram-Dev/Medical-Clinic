@@ -4,8 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Doctor;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Doctor\Store;
-use App\Http\Requests\Doctor\Update;
+use Illuminate\Validation\Rule;
 
 
 class DoctorController extends Controller
@@ -21,87 +20,63 @@ class DoctorController extends Controller
         return view('back.doctors.add-doctors');
     }
 
-    public function addNewDoctor(Store $store)
+    public function addNewDoctor()
     {
-        $imageName = request('avatar')->store('doctors/avatars');
-        Doctor::create([
+        $attributes = request()->validate([
 
-            'name'=>$store['name'],
-            'title_jop'=>$store['title_jop'],
-            'email'=>$store['email'],
-            'avatar'=>$imageName,
-            'facebook_link'=>$store['facebook_link'],
-            'twitter_link'=>$store['twitter_link'],
-            'linked-in_link'=>$store['linked-in_link'],
-            'mobile_number'=>$store['mobile_number'],
-            'status'=>$store['status']
+            'name'=>['required','string','between:5,50'],
+            'title_jop'=>['required','string','between:5,50'],
+            'email'=>['required','email','between:5,50',Rule::unique('doctors')],
+            'avatar'=>['required','image'],
+            'facebook_link'=>['required','url','between:5,190',Rule::unique('doctors')],
+            'twitter_link'=>['required','url','between:5,190',Rule::unique('doctors')],
+            'linked-in_link'=>['required','url','between:5,190',Rule::unique('doctors')],
+            'mobile_number'=>['required','numeric',Rule::unique('doctors')],
+            'status'=>['required',Rule::in(['active','deactivate'])]
+
         ]);
-
+        $imageName = request('avatar')->store('doctors/avatars');
+        $attributes['avatar']=$imageName;
+        Doctor::create($attributes);
         alert()->success('New Doctor Added Successfully','Success');
         return back();
 
     }
 
-    public function deleteDoctor($name)
+    public function deleteDoctor($id)
     {
-        if(isset($name)){
-
-            Doctor::where('name',$name)->delete();
-            alert()->success('Doctor Removed Successfully','Success');
-            return back();
-
-        }else{
-
-            alert()->error('Doctor Not Found','Error');
-            return back();
-        }
-
+      Doctor::findOrFail($id)->delete();
+      alert()->success('Doctor Removed Successfully','Success');
+      return back();
     }
 
-    public function editDoctor($name)
+    public function editDoctor($id)
     {
-      $doctor = Doctor::where('name',$name)->first();
+      $doctor = Doctor::findOrFail($id);
       return view('back.doctors.edit',compact('doctor'));
     }
 
-    public function updateDoctor(Update $update,$name)
+    public function updateDoctor($id)
     {
+        $attributes = request()->validate([
 
-      if(request()->has('avatar'))
-      {
-          $image = request('avatar')->store('doctors/avatars');
-          $update->avatar = $image;
+            'name'=>['required','string','between:5,50'],
+            'title_jop'=>['required','string','between:5,50'],
+            'email'=>['required','email','between:5,50',Rule::unique('doctors')->ignore($id)],
+            'avatar'=>['image'],
+            'facebook_link'=>['required','url','between:5,190',Rule::unique('doctors')->ignore($id)],
+            'twitter_link'=>['required','url','between:5,190',Rule::unique('doctors')->ignore($id)],
+            'linked-in_link'=>['required','url','between:5,190',Rule::unique('doctors')->ignore($id)],
+            'mobile_number'=>['required','numeric',Rule::unique('doctors')->ignore($id)],
+            'status'=>['required',Rule::in(['active','deactivate'])]
 
-          Doctor::where('name',$name)->update([
-              'name'=>$update['name'],
-              'title_jop'=>$update['title_jop'],
-              'email'=>$update['email'],
-              'avatar'=>$update->avatar,
-              'facebook_link'=>$update['facebook_link'],
-              'twitter_link'=>$update['twitter_link'],
-              'linked-in_link'=>$update['linked-in_link'],
-              'mobile_number'=>$update['mobile_number'],
-              'status'=>$update['status']
-          ]);
-          alert()->success('Doctor Updated Successfully','Success');
-          return back();
-      }else{
-
-          Doctor::where('name',$name)->update([
-              'name'=>$update['name'],
-              'title_jop'=>$update['title_jop'],
-              'email'=>$update['email'],
-              'facebook_link'=>$update['facebook_link'],
-              'twitter_link'=>$update['twitter_link'],
-              'linked-in_link'=>$update['linked-in_link'],
-              'mobile_number'=>$update['mobile_number'],
-              'status'=>$update['status']
-
-          ]);
-
-          alert()->success('Doctor Updated Successfully','Success');
-          return back();
-      }
-
+        ]);
+        if (request('avatar')) {
+            $attributes['avatar'] = request('avatar')->store('doctors/avatars');
+        }
+        $doctor = Doctor::findOrFail($id);
+        $doctor->update($attributes);
+        alert()->success('Doctor Updated Successfully','Success');
+        return back();
     }
 }

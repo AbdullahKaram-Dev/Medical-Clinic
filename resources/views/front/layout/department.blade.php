@@ -14,6 +14,8 @@
                 <div class="depart_ment_tab mb-30">
                     <!-- Tabs Buttons -->
                     <ul class="nav" id="myTab" role="tablist">
+
+
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                                 <i class="flaticon-teeth"></i>
@@ -50,12 +52,16 @@
                                 <h4>Blood Screening</h4>
                             </a>
                         </li>
+
+
                     </ul>
                 </div>
             </div>
         </div>
         <div class="dept_main_info white-bg">
             <div class="tab-content" id="myTabContent">
+
+
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <!-- single_content  -->
                     <div class="row align-items-center no-gutters">
@@ -147,6 +153,8 @@
                     <!-- single_content  -->
                 </div>
                 <div class="tab-pane fade" id="Blood" role="tabpanel" aria-labelledby="Blood-tab">
+
+
                     <!-- single_content  -->
                     <div class="row align-items-center no-gutters">
                         <div class="col-lg-7">
