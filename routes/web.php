@@ -17,6 +17,8 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
     Route::get('delete/department/{id}','DepartmentController@deleteDepartment')->name('delete-department');
     Route::get('edit/department/{id}','DepartmentController@editDepartment')->name('edit-department');
     Route::post('update/department/{id}','DepartmentController@updateDepartment')->name('update-department');
+    Route::get('add/new/department','DepartmentController@addNewDepartmentForm')->name('add-department-form');
+    Route::post('add/new/department','DepartmentController@addNewDepartment')->name('add-department');
 
 
 

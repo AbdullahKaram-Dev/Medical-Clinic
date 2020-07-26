@@ -12,7 +12,7 @@
 
 <div class="row">
 {{--Start--}}
-    @if(isset($doctors))
+    @if(isset($doctors) && count($doctors) > 0)
         @php $counter = 1    @endphp
         @foreach($doctors as $doctor)
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
@@ -66,6 +66,21 @@
             </div>
         @endforeach
         {{$doctors->links()}}
+    @else
+        <div class="col-md-12">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            Close
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    No Doctors Found yet !
+                </div>
+            </div>
+        </div>
     @endif
 {{--End--}}
 </div>

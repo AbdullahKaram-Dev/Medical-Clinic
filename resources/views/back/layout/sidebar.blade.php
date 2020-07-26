@@ -69,7 +69,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/boxed.html" class="nav-link">
+                            <a href="{{route('add-department-form')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add-New-Department</p>
                             </a>

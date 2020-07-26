@@ -14,11 +14,26 @@ class DepartmentController extends Controller
       return view('back.departments.all-departments',compact('departments'));
     }
 
-    public function deleteDepartment($id)
+    public function addNewDepartmentForm()
     {
-      Department::findOrFail($id)->delete();
-      alert()->success('Department Removed Successfully','Success');
-      return back();
+        return view('back.departments.add-departments');
+    }
+
+    public function addNewDepartment()
+    {
+
+       $attributes = request()->validate([
+            'name'=>['required','string','between:5,50'],
+            'description'=>['required','string','between:5,250'],
+            'avatar'=>['required','image']
+        ]);
+
+       $imageName = request('avatar')->store('departments/avatars');
+       $attributes['avatar'] = $imageName;
+
+       Department::create($attributes);
+       alert()->success('New Department Added Successfully','Success');
+       return back();
 
     }
 
@@ -41,6 +56,14 @@ class DepartmentController extends Controller
         $department = Department::where('id',$id);
         $department->update($attributes);
         alert()->success('Department Updated Successfully','Success');
+        return back();
+
+    }
+
+    public function deleteDepartment($id)
+    {
+        Department::findOrFail($id)->delete();
+        alert()->success('Department Removed Successfully','Success');
         return back();
 
     }

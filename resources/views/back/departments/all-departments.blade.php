@@ -12,6 +12,8 @@
 
 <div class="row">
 {{--Start--}}
+    @if(isset($departments) && count($departments) >0)
+        @php $counter = 1 @endphp
     <div class="card-body">
         <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
             <div class="row">
@@ -20,6 +22,7 @@
                 <div class="col-sm-12 col-md-6">
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-12">
                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
@@ -41,8 +44,6 @@
                         </thead>
 
                         <tbody>
-                        @if(isset($departments))
-                         @php $counter = 1 @endphp
                         @foreach($departments as $department)
                         <tr role="row" class="odd">
                             <td>{{$counter++}}</td>
@@ -69,6 +70,21 @@
                         </tr>
                         @endforeach
                         {{$departments->links()}}
+                        @else
+                            <div class="col-md-12">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        No Departments Found yet !
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                         </tbody>
                     </table>
