@@ -10,8 +10,8 @@ class DepartmentController extends Controller
 {
     public function __invoke()
     {
-      $departments = Department::paginate(paginate);
-      return view('back.departments.all-departments',compact('departments'));
+        $departments = Department::paginate(paginate);
+        return view('back.departments.all-departments',compact('departments'));
     }
 
     public function addNewDepartmentForm()
@@ -66,6 +66,12 @@ class DepartmentController extends Controller
         alert()->success('Department Removed Successfully','Success');
         return back();
 
+    }
+
+    public function showDoctorDepartment($id)
+    {
+        $departments = Department::with('doctor')->where('id',$id)->paginate(paginate);
+        return view('back.departments.department-doctors',compact('departments'));
     }
 
 }

@@ -19,7 +19,7 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
     Route::post('update/department/{id}','DepartmentController@updateDepartment')->name('update-department');
     Route::get('add/new/department','DepartmentController@addNewDepartmentForm')->name('add-department-form');
     Route::post('add/new/department','DepartmentController@addNewDepartment')->name('add-department');
-
+    Route::get('all-doctors/department/{id}','DepartmentController@showDoctorDepartment')->name('doctors-department');
 
 
 });

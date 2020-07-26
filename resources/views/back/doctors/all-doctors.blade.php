@@ -17,17 +17,20 @@
         @foreach($doctors as $doctor)
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                 <div class="card bg-light">
-
-                    <div class="card-header text-muted border-bottom-0">
-                        Title Jop : {{$doctor->title_jop}}
                         <div class="card-header text-muted text-left">
-                            Doctor Number : {{$counter++}}
+                            <label class="badge badge-primary" >Doctor Title Jop :</label> <span class="badge badge-outline-info">{{$doctor->title_jop}}</span>
                         </div>
-                    </div>
-                    <div class="card-body pt-0">
+                        <div class="card-header text-muted text-left">
+                            <label class="badge badge-primary" >Doctor Department :</label> <span class="badge badge-outline-info">{{$doctor->department->name}}</span>
+                        </div>
+                        <div class="card-header text-muted text-left">
+                            <label class="badge badge-primary" >Doctor Number :</label> <span class="badge badge-outline-info">{{$counter++}}</span>
+                        </div>
+
+                        <div class="card-body pt-0">
                         <div class="row">
                             <div class="col-12">
-                                <h3 class="lead"><b>{{$doctor->name}}</b></h3>
+                                <h3 class="lead"><b>Dr Name : {{$doctor->name}}</b></h3>
                                 <h2 class="text-muted text-sm"><b>Status : {!! $doctor->status ==='active'?'<label class="badge badge-success">active</label>':'<label class="badge badge-danger">deactivate</label>' !!}</b></h2>
                                 <h1 class="text-muted text-sm">Phone : {{$doctor->mobile_number}} <a class="badge badge-success" href="https://wa.me/{{$doctor->mobile_number}}">Whatsapp</a></h1>
                             </div>
@@ -44,6 +47,7 @@
                                 Update
                             </a>
                             </div>
+
                         </div>
                     </div>
                     <div class="card-footer">
@@ -77,7 +81,10 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    No Doctors Found yet !
+                    <strong>No Doctors Found yet !</strong>
+                    <br>
+                    <hr>
+                    <a href="{{route('add-doctor-form')}}" class="btn btn-outline-info">Click Here To Add One</a>
                 </div>
             </div>
         </div>

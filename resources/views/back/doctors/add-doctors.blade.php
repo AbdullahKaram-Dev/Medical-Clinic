@@ -114,6 +114,23 @@
             </div>
             @enderror
 
+            @if(isset($departments) && count($departments) > 0)
+            <div class="form-group">
+                <label for="DoctorStatus">Doctor Department</label>
+                <select id="DoctorStatus" class="form-control" name="department_id">
+                    @foreach($departments as $department)
+                    <option value="{{$department->id}}">{{$department->name}}</option>
+                    @endforeach
+
+                </select>
+            </div>
+            @endif
+            @error('status')
+            <div class="text-xs text-red">
+                {{$message}}
+            </div>
+            @enderror
+
         </div>
         <!-- /.card-body -->
 

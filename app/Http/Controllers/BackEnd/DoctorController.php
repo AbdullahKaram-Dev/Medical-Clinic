@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Department;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
-
 
 class DoctorController extends Controller
 {
     public function __invoke()
     {
-        $doctors = Doctor::paginate(paginate);
+        $doctors = Doctor::with('department')->paginate(paginate);
         return view('back.doctors.all-doctors',compact('doctors'));
     }
 
     public function addNewDoctorForm()
     {
-        return view('back.doctors.add-doctors');
+        $departments = Department::select('id','name')->get();
+        return view('back.doctors.add-doctors',compact('departments'));
     }
 
     public function addNewDoctor()
@@ -32,9 +33,11 @@ class DoctorController extends Controller
             'twitter_link'=>['required','url','between:5,190',Rule::unique('doctors')],
             'linked-in_link'=>['required','url','between:5,190',Rule::unique('doctors')],
             'mobile_number'=>['required','numeric',Rule::unique('doctors')],
+            'department_id'=>['required',Rule::exists('departments','id')],
             'status'=>['required',Rule::in(['active','deactivate'])]
 
         ]);
+
         $imageName = request('avatar')->store('doctors/avatars');
         $attributes['avatar']=$imageName;
         Doctor::create($attributes);

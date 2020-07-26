@@ -58,7 +58,7 @@
                                 <a href="{{route('edit-department',$department->id)}}" class="btn btn-sm btn-primary mr-2">
                                     Update
                                 </a>
-                                <a href="" class="btn btn-sm btn-link mr-2">
+                                <a href="{{route('doctors-department',$department->id)}}" class="btn btn-sm btn-link mr-2">
                                       Show All Doctors In Department
                                 </a>
                               </div>
@@ -81,7 +81,10 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        No Departments Found yet !
+                                        <strong>No Departments Found yet !</strong>
+                                        <br>
+                                        <hr>
+                                        <a href="{{route('add-department-form')}}" class="btn btn-outline-info">Click Here To Add One</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +97,6 @@
     </div>
 {{--End--}}
 </div>
-
 
 </div>
 </section>
