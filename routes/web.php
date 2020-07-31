@@ -25,6 +25,12 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
     Route::get('show/gallery','GalleryController@show')->name('gallery-show');
     Route::get('delete/gallery/{id}','GalleryController@deleteGallery')->name('gallery-delete');
     Route::get('change/gallery/status/{id}','GalleryController@changeStatus')->name('change-status');
+    Route::get('add/new/post','BlogController@addNewPostForm')->name('add-post-form');
+    Route::post('add/new/post','BlogController@addNewPost')->name('add-post');
+    Route::get('all-posts','BlogController')->name('show-all-posts');
+    Route::get('delete/post/{id}','BlogController@deletePost')->name('delete-post');
+    Route::get('edit/post/{id}','BlogController@editPost')->name('edit-post');
+    Route::post('update/post/{id}','BlogController@updatePost')->name('update-post');
 
 });
 

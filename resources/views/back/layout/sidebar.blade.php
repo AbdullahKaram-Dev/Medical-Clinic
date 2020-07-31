@@ -116,42 +116,21 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{route('add-post-form')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Top Navigation</p>
+                                <p>Add New Post</p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="pages/layout/boxed.html" class="nav-link">
+                            <a href="{{route('show-all-posts')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Boxed</p>
+                                <p>Show All Posts</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Sidebar</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Navbar</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/fixed-footer.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Footer</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Collapsed Sidebar</p>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
                 {{--end list--}}
