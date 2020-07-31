@@ -68,7 +68,6 @@
                             </div>
                         @endforeach
                         @endforeach
-                        {{$departments->links()}}
                     @else
                         <div class="col-md-12">
                             <div class="card card-gray-dark">

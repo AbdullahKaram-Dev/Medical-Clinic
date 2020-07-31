@@ -9,6 +9,7 @@
 <div class="content-wrapper">
     <section class="content">
         <div class="container-fluid">
+
     <form action="{{route('add-doctor')}}" method="POST" enctype="multipart/form-data" role="form">
         @csrf
         <div class="card-body">
@@ -138,6 +139,8 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+
+
         </div>
     </section>
 </div>

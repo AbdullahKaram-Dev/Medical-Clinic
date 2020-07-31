@@ -78,6 +78,34 @@
                 </li>
                 {{--end list--}}
 
+                {{--Start list--}}
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Gallery
+
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('add-gallery-form')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Gallery</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('gallery-show')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Show Gallery</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{--end list--}}
+
                 {{--start list--}}
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

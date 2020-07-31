@@ -70,7 +70,7 @@ class DepartmentController extends Controller
 
     public function showDoctorDepartment($id)
     {
-        $departments = Department::with('doctor')->where('id',$id)->paginate(paginate);
+        $departments = Department::with('doctor')->where('id',$id)->get();
         return view('back.departments.department-doctors',compact('departments'));
     }
 

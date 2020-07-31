@@ -20,7 +20,11 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
     Route::get('add/new/department','DepartmentController@addNewDepartmentForm')->name('add-department-form');
     Route::post('add/new/department','DepartmentController@addNewDepartment')->name('add-department');
     Route::get('all-doctors/department/{id}','DepartmentController@showDoctorDepartment')->name('doctors-department');
-
+    Route::get('add/new/gallery','GalleryController@index')->name('add-gallery-form');
+    Route::post('upload/gallery','GalleryController@upload')->name('gallery-upload');
+    Route::get('show/gallery','GalleryController@show')->name('gallery-show');
+    Route::get('delete/gallery/{id}','GalleryController@deleteGallery')->name('gallery-delete');
+    Route::get('change/gallery/status/{id}','GalleryController@changeStatus')->name('change-status');
 
 });
 
