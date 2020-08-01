@@ -57,6 +57,25 @@
             <div class="col-md-12">
                 {{$Abouts->links()}}
             </div>
+    @else
+        <div class="col-md-12">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            Close
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <strong>No About-us-Information Found yet !</strong>
+                    <br>
+                    <hr>
+                    <a href="{{route('add-about-information')}}" class="btn btn-outline-info">Click Here To Add One</a>
+                </div>
+            </div>
+        </div>
+
     @endif
 </div>
         </div>
