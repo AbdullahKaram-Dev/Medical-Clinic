@@ -20,22 +20,15 @@
                                         <li><a href="{{route('dashboard.home')}}" target="_blank">Back To Dashboard</a></li>
                                         @endif
                                         <li><a href="index.html">Home</a></li>
-                                        <li><a href="about.html">About</a></li>
                                         <li><a href="doctor.html">Doctors</a></li>
                                         <li><a href="department.html">Department</a></li>
-                                        <li><a href="blog.html">Blog</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="blog.html">Blog</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                             <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                <a href="#" class="btn header-btn">01654.066.456</a>
+                                <a href="index.html"><img src="{{asset('front-design/img/logo/logo.png')}}" alt=""></a>
                             </div>
                         </div>
                     </div>

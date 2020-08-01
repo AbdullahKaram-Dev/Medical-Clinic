@@ -31,6 +31,12 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
     Route::get('delete/post/{id}','BlogController@deletePost')->name('delete-post');
     Route::get('edit/post/{id}','BlogController@editPost')->name('edit-post');
     Route::post('update/post/{id}','BlogController@updatePost')->name('update-post');
+    Route::get('add/about-us-information','AboutController@addAboutForm')->name('add-about-information');
+    Route::post('about-us-information','AboutController@addInformationAbout')->name('add-information');
+    Route::get('about-us-information/show','AboutController')->name('show-information');
+    Route::get('about-us-information/delete/{id}','AboutController@delete')->name('delete-information');
+    Route::get('edit/information-about-us/{id}','AboutController@editAbout')->name('edit-about');
+    Route::post('update/about/{id}','AboutController@updateAbout')->name('update-about');
 
 });
 
