@@ -10,7 +10,7 @@ class DepartmentController extends Controller
 {
     public function __invoke()
     {
-        $departments = Department::paginate(paginate);
+        $departments = Department::paginate(3);
         return view('back.departments.all-departments',compact('departments'));
     }
 

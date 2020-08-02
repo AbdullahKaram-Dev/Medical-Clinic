@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{asset('front-design/css/style.css')}}">
 </head>
 <body>
+
 @yield('content')
 @include('front.layout.footer')
 <!-- Scroll Up -->
@@ -70,6 +71,7 @@
 <!-- Jquery Plugins, main Jquery -->
 <script src="{{asset('front-design/js/plugins.js')}}"></script>
 <script src="{{asset('front-design/js/main.js')}}"></script>
-
+<script src="http://malsup.github.com/jquery.form.js"></script>
+@include('sweet::alert')
 </body>
 </html>

@@ -11,7 +11,7 @@ class DoctorController extends Controller
 {
     public function __invoke()
     {
-        $doctors = Doctor::with('department')->paginate(paginate);
+        $doctors = Doctor::with('department')->paginate(6);
         return view('back.doctors.all-doctors',compact('doctors'));
     }
 

@@ -40,22 +40,19 @@ Route::group(['middleware'=>'Admin','prefix'=>'admin','namespace'=>'BackEnd'],fu
 
 });
 
-
-
-
-
-
-
-
-
-
-
 /*['register'=>false] by define this route you can ignore route register */
 Auth::routes();
 
 Route::group(['namespace'=>'FrontEnd'],function (){
 
     Route::get('/','HomePageController')->name('site.home');
+    Route::get('our-doctors','DoctorController')->name('all-doctors');
+    Route::get('our-departments','DepartmentController')->name('all-departments');
+    Route::get('our-blog','BlogController')->name('all-posts');
+    Route::get('single-post/{id}','BlogController@singlePost')->name('single-post');
+    Route::get('contact-us','ContactController')->name('contact-us');
+    Route::post('contact-us/send','ContactController@store')->name('add-contact-us');
+
 });
 
 

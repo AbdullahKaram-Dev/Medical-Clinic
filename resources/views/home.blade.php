@@ -23,25 +23,15 @@ Welcome To Our Clinic
 @include('front.layout.slider')
 <!-- slider Area End-->
 
-<!--? About Start-->
-@include('front.layout.about-us')
-<!-- About  End-->
-
 <!--? department_area_start  -->
 @include('front.layout.department')
 <!--? department_area_end  -->
 <!--? Gallery Area Start -->
 @include('front.layout.gallery')
 <!-- Gallery Area End -->
-<!--? All startups Start -->
-@include('front.layout.testimonial')
-<!--All startups End -->
 <!--? Team Start -->
 @include('front.layout.team-work')
 <!-- Team End -->
-<!--? Contact form Start -->
-@include('front.layout.form-contact')
-<!-- Contact form End -->
 <!--? Blog start -->
 @include('front.layout.blog')
 <!-- Blog End -->

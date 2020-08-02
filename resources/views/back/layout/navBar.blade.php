@@ -21,6 +21,17 @@
         </div>
     </form>
  <!-- Right nav-bar links -->
-
+    <ul class="navbar-nav">
+        <li class="nav-item d-none d-sm-inline-block">
+            <form action="{{url('logout')}}" method="POST">
+                @csrf
+            <span class="btn-xxs mt-2 btn-danger">
+                <button type="submit" style="color: blue">
+                    Logout
+                </button>
+            </span>
+            </form>
+        </li>
+    </ul>
  {{-- End Right nav-bar  --}}
 </nav>

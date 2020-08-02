@@ -4,57 +4,33 @@
             <div class="cl-xl-7 col-lg-8 col-md-10">
                 <!-- Section Tittle -->
                 <div class="section-tittle text-center mb-70">
-                    <span>Oure recent news</span>
-                    <h2>OurNews From Blog</h2>
+                    <span>Our recent news</span>
+                    <h2>Our-News From Blog</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6">
+            @if(isset($posts) && count($posts) > 0)
+            @foreach($posts as $post)
+
+                    <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="single-blogs mb-30">
                     <div class="blog-img">
-                        <img src="{{asset('front-design/img/gallery/blog1.png')}}" alt="">
+                        <img src="{{asset('storage/'.$post->avatar)}}" alt="{{$post->title}}">
                     </div>
                     <div class="blogs-cap">
                         <div class="date-info">
-                            <span>Health</span>
-                            <p>Nov 30, 2020</p>
+                            <span>{{$post->title}}</span>
+                            <p>{{$post->created_at->diffForHumans()}}</p>
                         </div>
-                        <h4><a href="blog_details.html">Amazing Places To Visit In Summer</a></h4>
+                        <h4>{{$post->description}}</h4>
                         <a href="blog_details.html" class="read-more1">Read more</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-blogs mb-30">
-                    <div class="blog-img">
-                        <img src="{{asset('front-design/img/gallery/blog2.png')}}" alt="">
-                    </div>
-                    <div class="blogs-cap">
-                        <div class="date-info">
-                            <span>Checkup</span>
-                            <p>Nov 30, 2020</p>
-                        </div>
-                        <h4><a href="blog_details.html">Developing Creativithout Losing Visual</a></h4>
-                        <a href="blog_details.html" class="read-more1">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-blogs mb-30">
-                    <div class="blog-img">
-                        <img src="{{asset('front-design/img/gallery/blog3.png')}}" alt="">
-                    </div>
-                    <div class="blogs-cap">
-                        <div class="date-info">
-                            <span>Operation</span>
-                            <p>Nov 30, 2020</p>
-                        </div>
-                        <h4><a href="blog_details.html">Winter Photography Tips from Glenn</a></h4>
-                        <a href="blog_details.html" class="read-more1">Read more</a>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+            @endif
         </div>
     </div>
 </div>

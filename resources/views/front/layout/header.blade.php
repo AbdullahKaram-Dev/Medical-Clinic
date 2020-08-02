@@ -7,7 +7,7 @@
                     <!-- Logo -->
                     <div class="col-xl-2 col-lg-2 col-md-1">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('front-design/img/logo/logo.png')}}" alt=""></a>
+                            <a href="{{route('site.home')}}"><img src="{{asset('front-design/img/logo/logo.png')}}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-11 col-lg-11 col-md-11">
@@ -19,16 +19,16 @@
                                         @if(auth()->check() && IsAdmin())
                                         <li><a href="{{route('dashboard.home')}}" target="_blank">Back To Dashboard</a></li>
                                         @endif
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="doctor.html">Doctors</a></li>
-                                        <li><a href="department.html">Department</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{route('site.home')}}">Home</a></li>
+                                        <li><a href="{{route('all-doctors')}}">Doctors</a></li>
+                                        <li><a href="{{route('all-departments')}}">Department</a></li>
+                                        <li><a href="{{route('all-posts')}}">Blog</a></li>
+                                        <li><a href="{{route('contact-us')}}">Contact-Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
                             <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                <a href="index.html"><img src="{{asset('front-design/img/logo/logo.png')}}" alt=""></a>
+                                <a href="{{route('site.home')}}"><img src="{{asset('front-design/img/logo/logo.png')}}" alt=""></a>
                             </div>
                         </div>
                     </div>
